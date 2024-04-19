@@ -1,0 +1,208 @@
+/* Definizione delle variabili di colore */
+:root {
+    --main: #FDFCDC; /* Colore principale */
+    --fine: #FED9B7; /* Colore secondario */
+    --root: #F07167; /* Colore di base */
+    --main1:#8E9AAF;
+    --main2:#CBC0D3;
+    --fine1:#EFD3D7;
+    --white:#FEEAFA;
+    --root1:#FEEAFA;
+    /* --grad1:linear-gradient(90deg, rgba(93,9,121,1) 47%, rgba(0,212,255,1) 100%); */
+    ;
+
+}
+/* navbar */
+.mynavbar {
+    background: rgb(246,182,18);
+    background: linear-gradient(117deg, rgba(246,182,18,1) 0%, rgba(108,237,255,1) 100%);
+    
+}
+
+
+/* Stile per il logo */
+
+.imagelogo {
+    height: 200px;
+    width: 175px;
+    padding: -20px;   
+    margin-top: 10px;
+    margin-block-start: 1%;
+    margin-right: 20px;
+    margin-left: -80px;
+    
+}
+.language {
+    
+    height: 27px;
+    width: 40px;
+    padding: 10% ;
+    margin: 0%;
+    border: 0%;
+}
+
+nav {
+    background-color: var(--grad1);
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Assicura che la navbar sia sopra il contenuto */   
+    padding: 10px 0; /* Spaziatura interna */
+}
+
+
+
+
+/* Stile per il body */
+body {
+    /* background-image: url(/public/img/sfondotest.png); */
+    background-color: #e0f7fde0;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    margin-top: 150px;
+}
+
+/* Effetto glow al passaggio del mouse */
+.glow-on-hover {
+    width: 70px;
+    height: 30px;
+    margin: 1px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    color: #fcfefe;
+    background:var(--root1);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+/* Effetto glow prima del passaggio del mouse */
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #f8c3c3, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 200%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 10s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 2%;
+}
+
+/* Stile al click */
+.glow-on-hover:active {
+    color: #000;
+}
+
+/* Stile dopo il click */
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+/* Effetto glow al passaggio del mouse */
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+/* Stile dietro l'elemento */
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:var(--main1);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* Animazione glow */
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Definizione del colore per gli elementi con classe .button */
+.buttonDad {
+    color-scheme: white;
+    padding: 20px;
+
+}
+
+/* Stile per il footer */
+footer {
+    background-color: var(--fine);
+}
+
+/* Media queries per renderlo responsive */
+
+/* Adatta il logo per schermi con larghezza massima di 768px */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 40%;
+    }
+}
+
+/* Adatta ulteriormente il logo per schermi con larghezza massima di 480px */
+@media only screen and (max-width: 480px) {
+    .logo {
+        width: 60%;
+    }
+}
+
+
+
+/* Regole CSS per rendere la navbar responsive */
+@media (max-width: 768px) {
+    /* Riduci il padding del contenitore principale della navbar */
+    .container-navbar {
+      padding: 0;
+    }
+  
+    /* Imposta la larghezza massima del logo per adattarsi a schermi più piccoli */
+    .navbar-brand img {
+      max-width: 120px;
+    }
+  
+    /* Modifica la direzione dei link della navbar su schermi più piccoli */
+    .navbar-nav {
+      flex-direction: column;
+    }
+  
+    /* Aggiungi margine inferiore ai singoli elementi della navbar su schermi più piccoli */
+    .navbar-nav .nav-item {
+      margin-bottom: 5px;
+    }
+  
+    /* Aggiungi margine superiore alla navbar sul toggle su schermi più piccoli */
+    .navbar-collapse {
+      margin-top: 10px;
+    }
+  
+    /* Riduci il padding dei link della navbar su schermi più piccoli */
+    .nav-link {
+      padding: .5rem 1rem;
+    }
+  
+    /* Centra i pulsanti di accesso e registrazione sulla navbar su schermi più piccoli */
+    .buttonDad {
+      text-align: center;
+    }
+  }
+  
