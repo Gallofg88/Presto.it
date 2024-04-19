@@ -73,7 +73,7 @@
                     <!-- Link per accedere al proprio profilo -->
                     <a href="{{ route('profile.profile') }}" class="btn btn-outline-primary me-3">{{ Auth::user()->name }}</a>
                     <!-- Se l'utente è un revisore, mostra il link alla sezione revisore -->
-                    @if (Auth::user()->is_revisor)
+                    @if (Auth::user() && Auth::user()->is_revisor)
                         <a href="{{ route('revisor.index') }}" class="badge bg-dark me-3">Sei Revisore
                             <span>{{ App\Models\Announcement::toBeRevisionedCount() }}</span>
                         </a>
