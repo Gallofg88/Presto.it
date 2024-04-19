@@ -23,13 +23,13 @@
 /* Stile per il logo */
 
 .imagelogo {
-    height: 200px;
+    /* height: 200px;
     width: 175px;
     padding: -20px;   
     margin-top: 10px;
     margin-block-start: 1%;
     margin-right: 20px;
-    margin-left: -80px;
+    margin-left: -80px; */
     
 }
 .language {
@@ -41,13 +41,7 @@
     border: 0%;
 }
 
-nav {
-    background-color: var(--grad1);
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Assicura che la navbar sia sopra il contenuto */   
-    padding: 10px 0; /* Spaziatura interna */
-}
+
 
 
 
