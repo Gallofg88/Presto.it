@@ -23,13 +23,13 @@
 /* Stile per il logo */
 
 .imagelogo {
-    /* height: 200px;
+    height: 200px;
     width: 175px;
     padding: -20px;   
     margin-top: 10px;
-    margin-block-start: 1%;
-    margin-right: 20px;
-    margin-left: -80px; */
+    
+    margin-right: 1px;
+    margin-left: 1px;
     
 }
 .language {
