@@ -1,7 +1,7 @@
 <!-- Contenitore principale della navbar -->
 <div class="container-fluid ">
     <!-- Navbar Bootstrap -->
-    <nav class="navbar navbar-expand-lg bg-navbar bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg bg-navbar bg-dark fixed-top mynavbar">
         <!-- Logo del sito nella navbar -->
         <a class="navbar-brand" href="#">
             <img id="logo" class="imagelogo" src="/img/Senza_titolo_5.png" alt="logo del sito">
@@ -42,13 +42,17 @@
                 <!-- Dropdown per le categorie -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-list"></i> Categorie</a>
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-list"></i> 
+                        Categorie</a>
                     <!-- Menu a tendina con le categorie -->
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu" aria-="navbarDropdown">
                         <!-- Loop attraverso le categorie -->
                         @foreach ($categories as $category)
-                            <li><a class="dropdown-item"
-                                    href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+                            <li>
+                                
+                                <a class="dropdown-item" href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+                                                         
                             </li>
                         @endforeach
                     </ul>
@@ -57,8 +61,7 @@
             
             @auth
                 <div>
-                    <!-- Messaggio di benvenuto per l'utente autenticato -->
-                    <a class="navbar-text me-3">Benvenuto {{ Auth::user()->name }}</a>
+                    
                     <!-- Link per accedere al proprio profilo -->
                     <a href="{{ route('profile.profile') }}" class="btn btn-outline-primary me-3">{{ Auth::user()->name }}</a>
                     <!-- Se l'utente è un revisore, mostra il link alla sezione revisore -->
@@ -67,12 +70,12 @@
                             <span>{{ App\Models\Announcement::toBeRevisionedCount() }}</span>
                         </a>
                     @endif
+                </div>
                     <!-- Form per il logout -->
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form  class="" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-right-to-bracket fa-sm" style="color: #f90404;"></i></button>
                     </form>
-                </div>
             @endauth
             
             <!-- Sezione per gli utenti non autenticati -->

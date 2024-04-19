@@ -15,21 +15,33 @@
 /* navbar */
 .mynavbar {
     background: rgb(246,182,18);
-    background: linear-gradient(117deg, rgba(246,182,18,1) 0%, rgba(108,237,255,1) 100%);
+    background: linear-gradient(to right, #ffeb3b, #4caf50);
+    padding: 15px; /* Aggiungi spazio intorno ai link */
+    overflow: hidden; /* Nascondi i link che sforano dalla navbar */
+ 
     
 }
+
+.navbar a {
+    float: left; /* Allinea i link a sinistra */
+    display: block; /* Trasforma i link in elementi blocco */
+    color: white; /* Colore del testo */
+    text-align: center; /* Allinea il testo al centro */
+    padding: 14px 20px; /* Aggiungi spazio interno ai link */
+    text-decoration: none; /* Rimuovi la sottolineatura */
+  }
 
 
 /* Stile per il logo */
 
 .imagelogo {
-    /* height: 200px;
-    width: 175px;
+    height: 75px;
+    width: 115px;
     padding: -20px;   
     margin-top: 10px;
     margin-block-start: 1%;
     margin-right: 20px;
-    margin-left: -80px; */
+   
     
 }
 .language {
