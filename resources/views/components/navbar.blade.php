@@ -28,11 +28,19 @@
                     </a>
                 </li>
                 <!-- Link per diventare revisore -->
-                <li class="nav-item">
+                 
+                @guest
+                   
+               
+                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('become.revisor') }}">
-                        <i class="fa-solid fa-list-check"></i> Diventa revisore
-                    </a>
-                </li>
+                        <i class="fa-solid fa-list-check"></i> Diventa revisore</a>
+                </li> 
+                
+                @endguest 
+
+                
+                
                 @auth
                     <!-- Link per creare un annuncio -->
                     <li class="nav-item">
