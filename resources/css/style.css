@@ -22,14 +22,41 @@
     
 }
 
-.navbar a {
-    float: left; /* Allinea i link a sinistra */
-    display: block; /* Trasforma i link in elementi blocco */
-    color: white; /* Colore del testo */
-    text-align: center; /* Allinea il testo al centro */
-    padding: 14px 20px; /* Aggiungi spazio interno ai link */
-    text-decoration: none; /* Rimuovi la sottolineatura */
-  }
+.about {
+    position: absolute;
+    top: 100%; /* Imposta la distanza dal bordo superiore */
+    left: 0; /* Imposta la distanza dal bordo sinistro */
+        max-height: 150px; /* Imposta un'altezza massima */
+        overflow-y: auto; /* Abilita lo scrolling verticale */
+    
+    max-width: 0px; /* Imposta una larghezza massima */
+}
+
+.drop{
+    margin-right: 50px;
+    list-style: none;
+    
+       
+    
+       
+    
+    
+    
+}
+
+.dadDrop {
+    position: start;
+}
+
+.lang {
+    height: 20px;
+    width: 20px;
+}
+
+.languages-container > div {
+    justify-content: flex-start;
+    margin-right: -100px; /* Imposta il margine destro tra le bandierine */
+}
 
 
 /* Stile per il logo */
