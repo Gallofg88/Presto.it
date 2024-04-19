@@ -29,24 +29,23 @@
                 </li>
                 <!-- Link per diventare revisore -->
                  
-                @guest
-                   
-               
-                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('become.revisor') }}">
-                        <i class="fa-solid fa-list-check"></i> Diventa revisore</a>
-                </li> 
-                
-                @endguest 
+                @auth
+                <!-- Link per creare un annuncio -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('create') }}">Crea annunci</a>
+                </li>
+                @if (!Auth::user()->is_revisor)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('become.revisor') }}">
+                            <i class="fa-solid fa-list-check"></i> Diventa revisore
+                        </a>
+                    </li>
+                @endif
+            @endauth
 
                 
                 
-                @auth
-                    <!-- Link per creare un annuncio -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('create') }}">Crea annunci</a>
-                    </li>
-                @endauth
+               
                 <!-- Dropdown per le categorie -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -87,14 +86,16 @@
             @endauth
             
             <!-- Sezione per gli utenti non autenticati -->
-            @guest
+          @guest
                 <div class="d-flex">
                     <!-- Bottone per registrarsi -->
                     <a href="{{ route('register') }}" class="btn btn-outline-primary me-3">Registrati</a>
                     <!-- Bottone per accedere -->
                     <a href="{{ route('login') }}" class="btn btn-outline-primary">Accedi</a>
                 </div>
-                <div class="d-flex mt-2">
+                
+               @endguest 
+                <div class="d-flex ">
                     <!-- Inclusione del componente language per l'italiano -->
                     <x-language lang="it" />
                     <!-- Inclusione del componente language per l'inglese -->
@@ -102,7 +103,7 @@
                     <!-- Inclusione del componente language per lo spagnolo -->
                     <x-language lang="es" />
                 </div>
-            @endguest
+           
             
         </div>
     </nav>

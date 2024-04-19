@@ -17,7 +17,7 @@
     background: rgb(246,182,18);
     background: linear-gradient(to right, #ffeb3b, #4caf50);
     padding: 15px; /* Aggiungi spazio intorno ai link */
-    overflow: hidden; /* Nascondi i link che sforano dalla navbar */
+   
  
     
 }
