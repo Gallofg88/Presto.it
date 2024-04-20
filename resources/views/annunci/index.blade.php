@@ -8,26 +8,22 @@
                 <div class="row">
                     <!-- Ciclo attraverso gli annunci -->
                     @forelse ($announcements as $announcement)
-                    <div class="col-12 col-md-4 my-2">
-                        <!-- Card per ogni annuncio -->
-                        <div class="card" style="width: 18rem;">
-                            <!-- Immagine dell'annuncio -->
-                            <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <!-- Titolo dell'annuncio -->
-                                <h5 class="card-title">Titolo: {{$announcement->title}}</h5>
-                                <!-- Prezzo dell'annuncio -->
-                                <p class="card-text">Prezzo: {{$announcement->price}}€</p>
-                                <!-- Descrizione dell'annuncio -->
-                                <p class="card-text">Descrizione: {{$announcement->description}}</p>
-                                <!-- Data di pubblicazione dell'annuncio -->
-                                <p class="card-text">Pubblicato il: {{$announcement->created_at->format('d/m/Y')}}</p>
-                                <!-- Nome dell'utente che ha pubblicato l'annuncio -->
-                                <p class="card-text">Pubblicato da: {{$announcement->user->name}}</p>
-                                <!-- Link per visualizzare i dettagli dell'annuncio -->
-                                <a href="{{route('announcements.show',compact('announcement'))}}" class="btn btn-danger">Vai al dettaglio</a>
+                    <div class="col-12 col-md-4 py-4"> <!-- Colonne per gestire il layout responsivo -->
+                        <div class="card h-100 shadow-sm"> 
+                            <img src="https://picsum.photos/300/300" class="card-img-top" alt="...">
+                            <div class="card-body"> 
+                                <h5 class="card-title text-center">{{$announcement->title}}</h5>
+                                <div class="clearfix mb-2">
+                                    <span class="float-start badge rounded-pill bg-success">{{$announcement->price}}€</span> 
+                                    <h5 class="card-title px-3">Pubblicato da: {{$announcement->user->name}}</h5>
+                                </div>
+                                <h5 class="card-title text-center">Categoria: {{$announcement->category->name}}</h5>
+                                <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
+                                <p class="card-text">Data di Pubblicazione: {{$announcement->created_at->format('d/m/Y')}}</p>
+                                <div class="d-grid gap-2 my-4"><a href="{{ route('announcements.show', compact('announcement')) }}"  class="btn btn-warning">Vai al dettaglio</a>
+                                </div> 
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     @empty
                     <!-- Nessun annuncio trovato -->

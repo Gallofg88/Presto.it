@@ -43,20 +43,24 @@
 
                         @foreach ($announcements as $announcement)
                             <!-- Ciclo attraverso gli annunci -->
-                            <div class="col-12 col-md-4 mt-4 mb-4">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h3 class="card-title">{{ $announcement->title }}</h3>
-                                        <p class="card-text">{{ $announcement->price }}€</p>
-                                        <p class="card-text">Categoria: {{ $announcement->category->name }}</p>
-                                        <p class="card-text">Pubblicato il:
-                                            {{ $announcement->created_at->format('d/m/Y') }}</p>
-                                        <a href="{{ route('announcements.show', compact('announcement')) }}"
-                                            class="btn btn-primary">Vai al dettaglio</a>
+                            <div class="col-12 col-md-4 py-4"> <!-- Colonne per gestire il layout responsivo -->
+                                <div class="card h-100 shadow-sm"> 
+                                    <img src="https://picsum.photos/300/300" class="card-img-top" alt="...">
+                                    <div class="card-body"> 
+                                        <h5 class="card-title text-center">{{$announcement->title}}</h5>
+                                        <div class="clearfix mb-2">
+                                            <span class="float-start badge rounded-pill bg-success">{{$announcement->price}}€</span> 
+                                            <h5 class="card-title px-3">Pubblicato da: {{$announcement->user->name}}</h5>
+                                        </div>
+                                        <h5 class="card-title text-center">Categoria: {{$announcement->category->name}}</h5>
+                                    
+                                        <p class="card-text">Data di Pubblicazione: {{$announcement->created_at->format('d/m/Y')}}</p>
+                                        <div class="d-grid gap-2 my-4"><a href="{{ route('announcements.show', compact('announcement')) }}"  class="btn btn-warning">Vai al dettaglio</a>
+                                        </div> 
                                     </div>
-                                </div>
+                                </div> 
                             </div>
+
                         @endforeach
                     </div>
                 </div>

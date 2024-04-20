@@ -19,27 +19,53 @@
         <div class="row">
             <div class="col-12">
                 <!-- Carousel per visualizzare le immagini degli annunci -->
-                <div id="showCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://picsum.photos/200/200" class="img-fluid p-3 randed" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/200/200" class="img-fluid p-3 randed" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/200/200" class="img-fluid p-3 randed" alt="">
-                        </div>
+              
+            <div class="card card-raised card-carousel">
+                <div id="carouselindicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselindicators" data-slide-to="0" class=""></li>
+                    <li data-target="#carouselindicators" data-slide-to="1" class="active"></li>
+                    <li data-target="#carouselindicators" data-slide-to="2" class=""></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active carousel-item-left">
+                      <img class="d-block w-100" src="https://picsum.photos/100/100" alt="First slide">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4>
+                          <i class="fa fa-map-marker"></i>
+                          Dharamshala,Himachal Pradesh, India
+                        </h4>
+                      </div>
                     </div>
-                    <!-- Pulsanti per scorrere il carousel -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#showCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#showCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <div class="carousel-item carousel-item-next carousel-item-left">
+                      <img class="d-block w-100" src="https://i.imgur.com/l3iUv92.jpg" alt="Second slide">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4>
+                          <i class="fa fa-map-marker"></i>
+                         Manali,Himachal Pradesh, India
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="https://i.imgur.com/rHCSTM1.jpg" alt="Third slide">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h4>
+                          <i class="fa fa-map-marker"></i>
+                          Kerala,Kerala, India
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselindicators" role="button" data-slide="prev" data-abc="true">
+                    <i class="fa fa-chevron-left"></i>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselindicators" role="button" data-slide="next" data-abc="true">
+                     <i class="fa fa-chevron-right"></i>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
                     <!-- Dettagli dell'annuncio -->
                     <h5 class="text-dark">Titolo: {{$announcement_to_check->title}}</h5>
                     <p class="card-text text-dark">Descrizione: {{$announcement_to_check->description}}</p>
