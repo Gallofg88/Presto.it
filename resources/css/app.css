@@ -39,9 +39,9 @@
     }
     .card-img-top{
         width: 100%;
-        max-height: 180px;
+      
         object-fit: contain;
-        padding: 30px
+        
     }
     .card h2{
         font-size: 1rem

@@ -243,3 +243,60 @@ footer {
   .imagelang {
     height:30px
   }
+
+  .prova {
+   width: 500px;
+    
+  }
+
+  .mybtn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 25px; /* Per un aspetto rotondo */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Stile al passaggio del mouse */
+  .mybtn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Stile al click */
+  .mybtn:active {
+    background-color: #388e3c;
+  }
+/* Stile per il pulsante */
+.mybtnone {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: #ffeb3b; /* Colore verde */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Stile al passaggio del mouse */
+  .mybtnone:hover {
+    background-color: #bdab0c; /* Colore verde più scuro */
+    transform: translateY(-2px); /* Solleva leggermente il pulsante */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
+  }
+  
+  /* Stile al click */
+  .mybtnone:active {
+    background-color: #726808; /* Colore verde più scuro al click */
+    transform: translateY(1px); /* Abbassa leggermente il pulsante */
+    box-shadow: none; /* Rimuove l'ombra al click */
+  }
+

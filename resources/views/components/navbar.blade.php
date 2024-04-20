@@ -24,7 +24,7 @@
             <!-- Link per gli annunci -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('announcements.index') }}">
-                    <i class="fa-solid fa-bullhorn"style="color: black"  ></i> Annunci
+                    <i class="fa-solid fa-bullhorn" style="color: black"  ></i> Annunci
                 </a>
             </li>
             <!-- Link per diventare revisore -->
@@ -32,7 +32,10 @@
             @auth
             <!-- Link per creare un annuncio -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('create') }}">Crea annunci</a>
+                <a class="nav-link" href="{{ route('create') }}">
+                    <i class="fa-solid fa-plus" style="color: #01060e;"></i>
+                    Crea annunci
+                    </a>
             </li>
             @if (!Auth::user()->is_revisor)
             <li class="nav-item">

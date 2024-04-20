@@ -6,7 +6,10 @@
                 @forelse ($category->announcements as $announcement)
                 <div class="col-12 col-md-4"> <!-- Colonne per gestire il layout responsivo -->
                     <div class="card h-100 shadow-sm"> 
-                        <img src="https://picsum.photos/300/300" class="card-img-top" alt="...">
+                        <div class="card-img">
+
+                            <img src="https://picsum.photos/800/600" class="card-img-top" alt="...">
+                        </div>
                         <div class="card-body"> 
                             <h5 class="card-title text-center">{{$announcement->title}}</h5>
                             <div class="clearfix mb-2">
