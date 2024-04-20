@@ -20,7 +20,7 @@
                                 <h5 class="card-title text-center">Categoria: {{$announcement->category->name}}</h5>
                                 <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
                                 <p class="card-text">Data di Pubblicazione: {{$announcement->created_at->format('d/m/Y')}}</p>
-                                <div class="d-grid gap-2 my-4"><a href="{{ route('announcements.show', compact('announcement')) }}"  class="btn btn-warning">Vai al dettaglio</a>
+                                <div class="d-grid gap-2 my-4"><a href="{{ route('announcements.show', compact('announcement')) }}"  class="btn btn-warning">VAI AL DETTAGLIO</a>
                                 </div> 
                             </div>
                         </div> 
