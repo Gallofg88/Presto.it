@@ -36,11 +36,14 @@
 
                 <div class="container d-flex justify-content-center">
                     <div class="row text-center">
-                        <h2 class="display-1">{{ __('message.welcome') }}</h2>
+                       
+                            <h2  class="display-1 animated-title">{{ __('message.welcome') }}</h2>
+
+                       
 
                         @foreach ($announcements as $announcement)
                             <!-- Ciclo attraverso gli annunci -->
-                            <div class="col-12 col-md-4 mt-4">
+                            <div class="col-12 col-md-4 mt-4 mb-4">
                                 <div class="card" style="width: 18rem;">
                                     <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
                                     <div class="card-body">

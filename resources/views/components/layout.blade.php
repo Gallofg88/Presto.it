@@ -15,7 +15,7 @@
     
     <!-- Contenuto principale -->
     <div class="min-vh-100">
-        {{-- <x-research></x-research> --}}
+       
         {{$slot}}
     </div>
         

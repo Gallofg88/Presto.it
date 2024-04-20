@@ -22,18 +22,20 @@
     
 }
 
+
+
 .about {
     position: absolute;
     top: 100%; /* Imposta la distanza dal bordo superiore */
     left: 0; /* Imposta la distanza dal bordo sinistro */
-        max-height: 150px; /* Imposta un'altezza massima */
-        overflow-y: auto; /* Abilita lo scrolling verticale */
+    max-height: 150px; /* Imposta un'altezza massima */
+      
     
     max-width: 0px; /* Imposta una larghezza massima */
 }
 
 .drop{
-    margin-right: 50px;
+   margin-right: 100px;
     list-style: none;
     
        
@@ -44,6 +46,8 @@
     
 }
 
+
+
 .dadDrop {
     position: start;
 }
@@ -53,10 +57,6 @@
     width: 20px;
 }
 
-.languages-container > div {
-    justify-content: flex-start;
-    margin-right: -100px; /* Imposta il margine destro tra le bandierine */
-}
 
 
 /* Stile per il logo */
@@ -75,7 +75,7 @@
     
     height: 27px;
     width: 40px;
-    padding: 10% ;
+   
     margin: 0%;
     border: 0%;
 }
@@ -95,6 +95,7 @@ body {
     background-position: center;
     margin-top: 150px;
 }
+
 
 /* Effetto glow al passaggio del mouse */
 .glow-on-hover {

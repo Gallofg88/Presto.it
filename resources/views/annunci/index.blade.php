@@ -37,10 +37,7 @@
                         </div>
                     </div>
                     @endforelse
-                    <!-- Paginazione -->
-                    <div class="">
-                        {{$announcements->links()}}
-                    </div>
+                   
                 </div>
             </div>
         </div>

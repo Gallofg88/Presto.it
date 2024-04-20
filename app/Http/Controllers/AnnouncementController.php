@@ -13,8 +13,8 @@ class AnnouncementController extends Controller
         
     }
     public function showAnnouncement (Announcement $announcement) {
-      
-        return view('annunci.show',compact('announcement'));
+       
+        return view('annunci.show',compact('announcements'));
     }
     public function index (Announcement $announcement) {
       

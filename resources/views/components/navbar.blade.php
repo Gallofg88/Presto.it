@@ -65,76 +65,87 @@
                 </ul>
             </li>
         </ul>
-        
-        @auth
-        <div>
-            
-            <!-- Se l'utente è un revisore, mostra il link alla sezione revisore -->
-            @if (Auth::user() && Auth::user()->is_revisor)
-            <a href="{{ route('revisor.index') }}" class="badge bg-dark me-3">Sei Revisore
-                <span>{{ App\Models\Announcement::toBeRevisionedCount() }}</span>
-            </a>
-            @endif
-        </div>
-        <!-- Form per il logout -->
-        
-        @endauth
+       
         
         @auth
         <li class="nav-item dropdown drop">
             <a class="nav-link dropdown-toggle" id="navbarDropdownUser" role="button"
-               data-bs-toggle="dropdown">
-                <i class="fa-solid fa-user"></i> Utente
-            </a>
-            <!-- Menu a tendina con le categorie -->
-            <ul class="dropdown-menu about" >
-                <li>
-                    <!-- Link per accedere al proprio profilo -->
-                    <a class="dropdown-item" href="{{ route('profile.profile') }}">Profilo</a>
-                </li>
-                <li>
-                    <!-- Form per il logout -->
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li>
-                <!-- Dropdown per la selezione della lingua -->
-                <li>
-                    <div class="d-flex languages-container">
-                        <!-- Inclusione del componente language per l'italiano -->
-                        <div
-                            <a class="dropdown-item" href="#"><x-language lang="it" /></a>
-                        </div>
-                        <!-- Inclusione del componente language per l'inglese -->
-                        <div
-                            <a class="dropdown-item" href="#"><x-language lang="en" /></a>
-                        </div>
-                        <!-- Inclusione del componente language per lo spagnolo -->
-                        <div 
-                            <a class="dropdown-item" href="#"><x-language lang="es" /></a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user"></i> Utente
+        </a>
+        <!-- Menu a tendina con le categorie -->
+        <ul class="dropdown-menu about" >
+            <li>
+                <!-- Link per accedere al proprio profilo -->
+                <a class="dropdown-item" href="{{ route('profile.profile') }}">Profilo</a>
+            </li>
+            <li class="my-2 revisor mx-2">
+                
+                <!-- Se l'utente è un revisore, mostra il link alla sezione revisore -->
+                @if (Auth::user() && Auth::user()->is_revisor)
+                <a href="{{ route('revisor.index') }}" class="badge bg-dark me-3">Sei Revisore
+                    <span>{{ App\Models\Announcement::toBeRevisionedCount() }}</span>
+                </a>
+                @endif
+            </li>
+            <li>
+                <!-- Form per il logout -->
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+        </ul>
+    </li>
+    
+
+
+
+    <li class="nav-item dropdown drop">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownUser" role="button"
+        data-bs-toggle="dropdown">
+        <i class="fa-solid fa-globe"></i> Seleziona la lingua
+    </a>
+    <!-- Menu a tendina per le lingue -->
+    <ul class="dropdown-menu about languages-container" >
+       
+        <li class="">
+            
+            <a class="dropdown-item" href="#"><x-language lang="it" /></a>
+       
+           
         </li>
-    @endauth  
-    
-    <!-- Sezione per gli utenti non autenticati -->
-    @guest
-    <div class="d-flex">
-        <!-- Bottone per registrarsi -->
-        <a href="{{ route('register') }}" class="btn btn-outline-primary me-3">Registrati</a>
-        <!-- Bottone per accedere -->
-        <a href="{{ route('login') }}" class="btn btn-outline-primary">Accedi</a>
-    </div>
-    
-    @endguest 
-    
-    
-    
+        <li class="">
+            <a class="dropdown-item" href="#"><x-language lang="en" /></a>
+           
+        </li>
+        <li>
+            <a class="dropdown-item" href="#"><x-language lang="es" /></a>
+           
+        </li>
+       
+    </ul>
+</li>
+
+
+   
+@endauth  
+
+<!-- Sezione per gli utenti non autenticati -->
+@guest
+<div class="d-flex">
+    <!-- Bottone per registrarsi -->
+    <a href="{{ route('register') }}" class="btn btn-outline-primary me-3">Registrati</a>
+    <!-- Bottone per accedere -->
+    <a href="{{ route('login') }}" class="btn btn-outline-primary">Accedi</a>
+</div>
+
+@endguest 
+
+
+
 </div>
 </nav>
 </div>
