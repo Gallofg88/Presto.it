@@ -113,7 +113,7 @@
        
         <li class="">
             
-            <a class="dropdown-item" href="#"><x-language lang="it" /></a>
+            <a class="dropdown-item imagelang" href="#"><x-language lang="it" /></a>
        
            
         </li>
