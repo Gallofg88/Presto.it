@@ -1,50 +1,52 @@
 <x-layout>
-    <div class="container">
-        <!-- Inizio riga -->
-        <div class="row justify-content-center text-center"> <!-- Utilizzata la classe justify-content-center per centrare il contenuto orizzontalmente e text-center per centrare il testo -->
-            <!-- Inizio colonna -->
-            <div class="col-md-8 col-lg-6"> <!-- Utilizzate le classi col-md-8 e col-lg-6 per gestire il layout su dispositivi di diverse dimensioni -->
-                <!-- Spazio vuoto per l'allineamento verticale -->
-                <div style="height: 100px"></div> <!-- L'altezza ridotta per adattarsi meglio agli schermi più piccoli -->
-                <h2>Accedi</h2>
-    
+    <div class="container mt-6">
+        <div class="row justify-content-center text-center">
+            <div class="col-sm-10 col-md-8 col-lg-6 mt-5"> <!-- Utilizzate le classi col-sm-10 per dispositivi piccoli, col-md-8 per dispositivi medi e col-lg-6 per dispositivi grandi -->
                 <!-- Verifica degli errori di validazione -->
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-    
-                <!-- Form per l'accesso -->
-                <form method="POST" action="{{ route('login') }}">
+                
+                
+                <form class="formLogin mt-5" method="POST" action="{{ route('login') }}">
                     @csrf <!-- Protezione CSRF -->
-    
-                    <!-- Campo email -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input name="email" type="email" class="form-control" id="email" required> <!-- Aggiunto attributo required per la validazione -->
+                    <h2>{{__('ui.Accedi')}} </h2>
+                    <div class="form-group">
+                        <label class="mylabel @error('email') is-invalid @enderror" for="email">Email</label>
+                        <input class="myinput form-control" placeholder="@error('email') {{$message}} @enderror" name="email" type="email" id="email" required>
                     </div>
-    
-                    <!-- Campo password -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <input name="password" type="password" class="form-control" id="password" required> <!-- Aggiunto attributo required per la validazione -->
-                            <button class="btn btn-outline-dark bg-primary" type="button" onclick="togglePassword()">Mostra/Nascondi Password</button>
-                        </div>
+                    <div class="form-group">
+                        <label class="mylabel @error('password') is-invalid @enderror" for="password">Password</label>
+                        <input class="myinput form-control" name="password" placeholder="@error('password') {{$message}} @enderror" type="password" id="passwordField">
+                    </div>
+                    <div class="form-group form-check d-flex justify-content-center">
+                        <input type="checkbox" class="form-check-input" id="showPasswordCheckbox">
+                        <label class="form-check-label" for="showPasswordCheckbox">Mostra Password</label>                        
                     </div>
                     
+                    
+                    
+                    
                     <!-- Pulsante di accesso -->
-                    <button type="submit" class="btn btn-primary">Accedi</button>
+                    <button type="submit" class="btn mybottone btn-warning mt-3">{{__('ui.Accedi')}}</button>
+                    <div class="mt-3">
+                        <a class="text-decoration-none anchorRegister" href="{{ route('register') }}">Se non sei registrato clicca qui</a>
+                    </div>
                 </form>
             </div> <!-- Fine colonna -->
-        </div> <!-- Fine riga -->
+        </div>
     </div>
-    
-   
-    
+    <!-- Fine riga -->
+</div>
+
+
+<script>
+    document.getElementById("showPasswordCheckbox").addEventListener("change", function() {
+        var passwordField = document.getElementById("passwordField");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+    });
+</script>
+
+
 </x-layout>

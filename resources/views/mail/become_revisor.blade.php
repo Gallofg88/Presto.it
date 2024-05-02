@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    
     <!-- 🌟 Tabella principale -->
     <table cellspacing="0" cellpadding="0" border="0" width="100%">
         <tr>
@@ -19,10 +19,11 @@
                             <!-- 🚀 Titolo -->
                             <h2 style="color: #333333;">Un utente ha chiesto di lavorare con noi</h2>
                             <!-- 📝 Paragrafi per i dati dell'utente -->
-                            <p style="color: #666666;">Ecco i suoi dati:</p>
+                        
+                            
                             <p style="color: #666666;">Nome: {{$user->name}}</p>
                             <p style="color: #666666;">Email: {{$user->email}}</p>
-                            <p style="color: #666666;">Corpo: {{$body}}</p>
+                            <p style="color: #666666;">{{$body}}</p>
                             <!-- 🛠️ Link per rendere l'utente revisore -->
                             <p style="color: #666666;">Se vuoi renderlo revisore, clicca qui: <a href="{{route('make.revisor',compact('user'))}}" style="color: #007bff; text-decoration: none;">Rendi revisore</a></p>
                         </td>

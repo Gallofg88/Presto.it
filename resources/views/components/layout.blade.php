@@ -12,16 +12,19 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body>
+<body style="background: linear-gradient(to right,#61cae1, #faeb66) !important">
     <!-- Navbar -->
     <x-navbar />
     
     <!-- Contenuto principale -->
     <div class="min-vh-100">
+   
        
         {{$slot}}
-    </div>
         
+    </div>
+ 
+    
     <!-- Footer -->
     <x-footer />
 

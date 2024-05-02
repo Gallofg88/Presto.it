@@ -17,7 +17,9 @@ class RevisorController extends Controller
     {
         $announcement_to_check = Announcement::where('is_accepted', null)->first();
         return view('revisor.index', compact('announcement_to_check'));
+        
     }
+    
     
     public function acceptAnnouncement(Announcement $announcement)
     {
@@ -29,33 +31,31 @@ class RevisorController extends Controller
         $announcement->setAccepted(false);
         return redirect()->back()->with('message', 'Complimenti hai rifiutato l\'annuncio');
     }
-
+    
     public function becomeRevisor(Request $request){
         
         $name = $request->name;
         $email = $request->email;
         $body = $request->body;
-
+        
         Mail::to('revidor@presto.it')->send(new BecomeRevisor(Auth::user(),$body));
-
+        
         
         //Riportando alla vista homepage tramite l'helper di laravel che ci reindirizza ad una rotta di tipo get quindi ad un qualcosa di visionabile
         return redirect(route('home'))->with('message','Ti abbiamo mandato una mail, controlla la casella di posta elettronica');
-
         
-
+        
+        
     }
     public function makeRevisor(User $user){
         Artisan::call('app:make-user-revisor',["email"=>$user->email]);
         return redirect()->back()->with('revisor','Complimenti, sei diventato revisore');
     }
-
-   
-
-
- 
-
-
-
-
+  
+    
+    
+    
+    
+    
+    
 }

@@ -29,7 +29,10 @@ Route::patch('/accetta/annuncio/{announcement}', [RevisorController::class, 'acc
 Route::patch('/rifiuta/annuncio/{announcement}', [RevisorController::class, 'rejectAnnouncement'])->middleware('IsRevisor')->name('revisor.reject');
 Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
 Route::get('/rendi/revisore/{user}',[RevisorController::class,'makeRevisor'])->name('make.revisor');
-// Route::post('/contact-us/submit', [RevisorController::class, 'submit'])->name('contact.submit');
+Route::get('/work/withus',[PublicController::class,'withus'])->name('work.withus');
+Route::post('/contact-us/submit', [RevisorController::class, 'submit'])->name('contact.submit');
 Route::get('/ricerca/annuncio',[PublicController::class,'searchAnnouncement'])->name('announcement.search');
+Route::delete('/delete/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcement.delete');
 // rotta lingue
-Route::post('/lingua{lang}',[PublicController::class,'setLanguage'])->name('set_language_locale');
+Route::post('/lingua/{lang}',[PublicController::class,'setLanguage'])->name('set_language_locale');
+

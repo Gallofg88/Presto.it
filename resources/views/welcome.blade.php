@@ -1,69 +1,37 @@
 <x-layout>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                @if (session('access.denied'))
-                    <!-- Mostra un messaggio di errore se l'accesso è negato -->
-                    <div class="alert alert-danger">
-                        {{ session('access.denied') }}
-                    </div>
-                @endif
+    <x-header></x-header>
 
-                @if (session('message'))
-                    <!-- Mostra un messaggio di successo -->
-                    <div class="alert alert-success">
-                        {{ session('message') }}
-                    </div>
-                @endif
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10"> <!-- Utilizzo delle classi bootstrap per gestire il layout -->
+                <h2 class="text-center animated-title  ">{{__('ui.our latest announcements')}}</h2>
 
-                @if (session('revisor'))
-                    <!-- Mostra un messaggio di successo specifico per i revisori -->
-                    <div class="alert alert-success">
-                        {{ session('revisor') }}
-                    </div>
-                @endif
-
-                @if ($errors->any())
-                    <!-- Mostra tutti gli errori di validazione -->
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <div class="container d-flex justify-content-center">
-                    <div class="row text-center">
-                       
-                            <h2  class="display-1 animated-title">{{ __('message.welcome') }}</h2>
-
-                       
-
-                        @foreach ($announcements as $announcement)
-                            <!-- Ciclo attraverso gli annunci -->
-                            <div class="col-12 col-md-4 py-4"> <!-- Colonne per gestire il layout responsivo -->
-                                <div class="card h-100 shadow-sm"> 
-                                    <img src="https://picsum.photos/300/300" class="card-img-top" alt="...">
-                                    <div class="card-body"> 
-                                        <h5 class="card-title text-center">{{$announcement->title}}</h5>
-                                        <div class="clearfix mb-2">
-                                            <span class="float-start badge rounded-pill bg-success">{{$announcement->price}}€</span> 
-                                            <h5 class="card-title px-3">Pubblicato da: {{$announcement->user->name}}</h5>
-                                        </div>
-                                        <h5 class="card-title text-center">Categoria: {{$announcement->category->name}}</h5>
+                <div class="row row-cols-1 row-cols-md-3 g-4 text-center"> <!-- Utilizzo delle classi bootstrap per gestire il layout delle card -->
+                    @foreach ($announcements as $announcement)
+                    <div class="col">
+                        <div class="card h-100 shadow-sm  ">
+                            
+                            <img src="{{ !$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(400,300) : 'https://picsum.photos/800/603' }}" class="card-img-top" alt="...">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title text-center animated-title3">{{$announcement->title}}</h5>
+                                <div class="clearfix mb-2">
+                                    <span class=" badge rounded-pill bg-warning mb-3 textcustom1">{{$announcement->price}}€</span>
                                     
-                                        <p class="card-text">Data di Pubblicazione: {{$announcement->created_at->format('d/m/Y')}}</p>
-                                        <div class="d-grid gap-2 my-4"><a href="{{ route('announcements.show', compact('announcement')) }}"  class="btn btn-warning">Vai al dettaglio</a>
-                                        </div> 
-                                    </div>
-                                </div> 
+                                </div>
+                                <span class="card-title mt-5"></span> <span class="badge rounded-pill bg-info mb-3 textcustom1">
+                                    <a class="text-decoration-none" href="{{ route('categoryShow', ['category' => $announcement->category]) }}">{{__('ui.'. $announcement->category->name )}}</a>
+                                 </span>
+                               
+                                <div class="d-grid gap-2 my-4"><a href="{{ route('announcements.show', compact('announcement')) }}" class="btn btn-warning">{{__('ui.Vai al dettaglio')}}</a></div>
+                                <p class="card-title text-center"> {{__('ui.Publicato')}} : {{ $announcement->user->name }} <br> {{$announcement->created_at->format('d/m/Y')}}</p>
                             </div>
-
-                        @endforeach
+                        </div>
                     </div>
+                    @endforeach
                 </div>
+
+                <x-aboutUs />
             </div>
         </div>
     </div>
